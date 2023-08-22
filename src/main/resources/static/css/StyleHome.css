@@ -1,0 +1,47 @@
+:root{
+    --white-color:white ;
+}
+
+.nav-custom{
+    display: flex;
+    justify-content: space-around;
+}
+
+.content-main{
+    display: flex;
+    flex: 10;
+}
+
+.content-main-left{
+    flex: 3;
+}
+
+.content-main-right{
+    flex: 7;
+}
+
+.home__filter{
+    background-color: rgba(0, 0, 0, 0.05);
+    display: flex;
+    padding: 12px 22px;
+    border-radius: 2px;
+    align-items: center;
+}
+
+.home__filter-page{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.select-input{
+    position: relative;
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

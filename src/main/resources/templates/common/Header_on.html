@@ -1,0 +1,128 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en"  xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Header</title>-->
+<!--    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />-->
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" />-->
+<!--    <link rel="stylesheet" th:href="@{/css/StyleHeader.css}">-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/StyleHome.css}">
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;    <div class="container-fluid">&ndash;&gt;-->
+<!--        <nav  class="navbar navbar-expand-lg bg-dark navbar-dark ">-->
+<!--            <a style="margin: 0; padding: 0; margin-left: 5px" class="navbar-brand" th:href="@{/}">-->
+<!--                <img th:src="@{/images/logo/furama.png}">-->
+<!--            </a>-->
+<!--            <div class="header-nav">-->
+<!--              <ul class="navbar-nav mr-auto ">-->
+<!--                  <li class="nav-item">-->
+<!--                      <a th:href="@{/}" class="nav-link"><i class="fa-solid fa-house fa-xl"></i></a>-->
+<!--                  </li>-->
+<!--              </ul>-->
+<!--              <ul class="navbar-nav ml-auto" >-->
+<!--                  <li class="nav-item " >-->
+<!--                      <a class="nav-link"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>-->
+<!--                  </li>-->
+<!--                  <li class="nav-item ">-->
+<!--                      <a class="nav-link" th:href="@{/account}"><i class="fa-solid fa-user fa-xl"></i></a>-->
+<!--                  </li>-->
+<!--              </ul>-->
+<!--                &lt;!&ndash; Hiển thị link "Logout" nếu người dùng đã đăng nhập &ndash;&gt;-->
+<!--                <div th:if="${#authentication.isAuthenticated()}">-->
+<!--                    <a class="nav-link" th:href="@{/logout}">Logout</a>-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash; Hiển thị link "Login" nếu người dùng chưa đăng nhập &ndash;&gt;-->
+<!--                <div th:unless="${#authentication.isAuthenticated()}">-->
+<!--                    <a th:href="@{/login}" class="nav-link">Login</a>-->
+<!--                </div>-->
+
+
+<!--                &lt;!&ndash;                <div >&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <a class="nav-link" th:href="@{/logout}">Logout</a>&ndash;&gt;-->
+<!--                &lt;!&ndash;                </div>&ndash;&gt;-->
+<!--          </div>-->
+<!--      </nav>-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"/>
+    <!--    <link rel="stylesheet" th:href="@{/css/StyleHeader.css}">-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/StyleHome.css}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <a style="margin: 0; padding: 0; margin-left: 10px" class="navbar-brand" th:href="@{/}">
+        <img th:src="@{/images/logo/furama.png}">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse nav-custom" id="topNavbar">
+        <ul class="navbar-nav mr-auto  nav-custom-right">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/users}">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/categories}">Categories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/brands}">Brands</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/products}">Products</a>
+            </li>
+            <li>
+                <a class="nav-link" th:href="@{/add-info-employee}">Employee</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/customers}">Customers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/orders}">Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/report}">Sales Report</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/services}">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/menus}">Menus</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/settings}">Settings</a>
+            </li>
+
+
+        </ul>
+        <!-- Hiển thị link "Logout" nếu người dùng đã đăng nhập -->
+        <div >
+            <a class="nav-link" th:href="@{/login}">Login</a>
+        </div>
+
+
+
+        <ul class="navbar-nav ml-auto  nav-custom-left">
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/cart/views}"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" th:href="@{/account}"><i class="fa-solid fa-user fa-xl"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

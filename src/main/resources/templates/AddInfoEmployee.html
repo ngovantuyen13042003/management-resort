@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add information of employee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"/>
+
+</head>
+<body>
+
+<div th:replace="~{/common/Header_on}"></div>
+
+<div class="container" style="margin-top: 30px">
+    <h2 class="text-center">Addition information of employee</h2>
+
+
+    <div th:if="${param.success}">
+        <div class="alert alert-info">
+            You have successfully added information of employee!
+        </div>
+    </div>
+
+    <div th:if="${param.error}">
+        <div class="alert alert-danger"> Adding information of employee failed! </div>
+    </div>
+
+
+    <form method="post" th:action="@{/add-info-employee/save}" th:object="${employee}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}">
+            <p th:errors="*{name}" class="text-danger" th:if="${#fields.hasErrors('name')}"> </p>
+        </div>
+        <div class="mb-3">
+            <label for="dateOfBirth" class="form-label">Date of birth:</label>
+            <input type="date" class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}">
+            <p th:errors="*{dateOfBirth}" class="text-danger" th:if="${#fields.hasErrors('dateOfBirth')}"> </p>
+        </div>
+        <div class="mb-3">
+            <label for="idCard" class="form-label">Identity card:</label>
+            <input type="text" class="form-control" id="idCard" th:field="*{idCard}">
+            <p th:errors="*{idCard}" class="text-danger" th:if="${#fields.hasErrors('idCard')}"> </p>
+        </div>
+        <div class="mb-3">
+            <label for="phoneNumber" class="form-label">Phone number:</label>
+            <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}">
+            <p th:errors="*{phoneNumber}" class="text-danger" th:if="${#fields.hasErrors('phoneNumber')}"></p>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}">
+            <p th:errors="*{email}" class="text-danger" th:if="${#fields.hasErrors('email')}"></p>
+        </div>
+
+        <div class="mb-3">
+            <label for="address" class="form-label">Address:</label>
+            <input type="text" class="form-control" id="address" th:field="*{address}">
+            <p th:errors="*{address}" class="text-danger"
+               th:if="${#fields.hasErrors('address')}"></p>
+        </div>
+
+        <div class="mb-3">
+            <label for="position_id" class="form-label">Position:</label>
+            <select class="form-select" id="position_id" th:field="*{position_id}">
+                <option th:each="item : ${positions}" th:value="${item.getId()}"
+                        th:text="${item.getName()}"></option>
+            </select>
+<!--            <p th:errors="*{position_id}" class="text-danger" th:if="${#fields.hasErrors('position_id')}"></p>-->
+        </div>
+        <div class="mb-3">
+            <label for="division_id" class="form-label">Division:</label>
+            <select class="form-select" id="division_id" th:field="*{division_id}">
+                <option th:each="item : ${divisions}" th:value="${item.getId()}" th:text="${item.getName()}"></option>
+            </select>
+<!--            <p th:errors="*{division_id}" class="text-danger" th:if="${#fields.hasErrors('division_id')}"></p>-->
+        </div>
+        <div class="mb-3">
+            <label for="education_degree_id" class="form-label">Education degree:</label>
+            <select class="form-select" id="education_degree_id" th:field="*{education_degree_id}">
+                <option th:each="item : ${educationDegrees}" th:value="${item.getId()}" th:text="${item.getName()}"></option>
+            </select>
+<!--            <p th:errors="*{education_degree_id}" class="text-danger" th:if="${#fields.hasErrors('education_degree_id')}"></p>-->
+        </div>
+        <div class="mb-3">
+            <label for="id_user" class="form-label">Education degree:</label>
+            <select class="form-select" id="id_user" th:field="*{id_user}">
+                <option th:each="item : ${users}" th:value="${item.getUserName()}" th:text="${item.getUserName()}"></option>
+            </select>
+<!--            <p th:errors="*{id_user}" class="text-danger" th:if="${#fields.hasErrors('id_user')}"></p>-->
+        </div>
+        <div class="row" style="display: block; margin-bottom: 30px">
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div th:replace="~{/common/Footer}"></div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/StyleLogIn.css}">
+</head>
+<body>
+<div th:replace="~{/common/Header_on}"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div th:if="${param.error}">
+                <div class="alert alert-danger"> Invalid username or password! </div>
+            </div>
+
+            <div th:if="${param.logout}">
+                <div class="alert alert-success"> You have been logged out. </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Login</h4>
+                    <form method="post" class="form-horizontal" th:action="@{/login}">
+                        <div class="form-group">
+                            <label for="username">Username<span class="rq">*</span></label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password<span class="rq">*</span></label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                    <div class="register-link">
+                        <p>Chưa có tài khoản? <a th:href="@{/register}">Đăng ký</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{/common/Footer}"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
+</body>
+</html>

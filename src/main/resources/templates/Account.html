@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous">
+    <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:replace="~{/common/Header_on}"></div>
+<section class="h-100 gradient-custom-2">
+    <div class="container py-5 h-100">
+        <div
+                class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-9 col-xl-7">
+                <div class="card">
+                    <div class="rounded-top text-white d-flex flex-row"
+                         style="background-color: #000; height: 200px;">
+                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                            <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                                    alt="Generic placeholder image"
+                                    class="img-fluid img-thumbnail mt-4 mb-2"
+                                    style="width: 150px; z-index: 1">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle"
+                                        data-bs-toggle="dropdown" data-bs-display="static"
+                                        aria-expanded="false">EDIT PROFILE
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-lg-end">
+                                    <li>
+                                        <a class="dropdown-item" th:href="@{/add-info-employee}">Thay đổi thông tin</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="">Thay đổi mật khẩu</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="">Thay đổi avatar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" style="white-space: nowrap;" th:href="@{/}"><i
+                                                class="fa-solid fa-right-from-bracket" style="margin-right: 5px"></i>Thoát</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <div class="ms-3" style="margin-top: 130px;" th:if="${#authentication.isAuthenticated()}">
+                            <h5 th:text="${#authentication.principal.username}"></h5>
+                            <p ></p>
+                        </div>
+                    </div>
+                    <div class="p-4 text-black" style="background-color: #f8f9fa;">
+                        <div class="d-flex justify-content-end text-center py-1">
+                            <div>
+                                <p class="mb-1 h5">253</p>
+                                <p class="small text-muted mb-0">Photos</p>
+                            </div>
+                            <div class="px-3">
+                                <p class="mb-1 h5">1026</p>
+                                <p class="small text-muted mb-0">Followers</p>
+                            </div>
+                            <div>
+                                <p class="mb-1 h5">478</p>
+                                <p class="small text-muted mb-0">Following</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4 text-black" >
+                        <div class="mb-5">
+                            <p class="lead fw-normal mb-1">Thông tin của bạn</p>
+                            <div class="p-4" style="background-color: #f8f9fa;" th:if="${employee != null}">
+                                <p class="font-italic mb-1">
+                                    <b>Full name:  </b><span  th:text="${employee.name}"></span>
+                                </p>
+                                <p class="font-italic mb-1">
+                                    <b>Địa chỉ: </b><span th:text="${employee.address}"></span>
+                                </p>
+                                <p class="font-italic mb-1">
+                                    <b>Ngày sinh: </b> <span th:text="${employee.dateOfBirth}"></span>
+                                </p>
+                                <p class="font-italic mb-1">
+                                    <b>Phone number: </b><span th:text="${employee.phoneNumber}"> </span>
+                                </p>
+                                <p class="font-italic mb-0">
+                                    <b>Email: </b><span th:text="${employee.email}"></span>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="~{/common/Footer}"></div>
+</body>
+</html>
